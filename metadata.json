@@ -1,0 +1,5 @@
+{
+  "name": "CloudOps: AWS Spot & On-Demand Monitor",
+  "description": "A comprehensive multi-account dashboard for monitoring EC2 Spot and On-Demand instance distribution across Auto Scaling Groups, featuring historical trends and AI-driven cost recommendations.",
+  "requestFramePermissions": []
+}
