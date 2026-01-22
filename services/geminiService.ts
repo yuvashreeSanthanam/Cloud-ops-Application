@@ -11,27 +11,36 @@ export const getAIRecommendations = async (accounts: AWSAccount[]): Promise<stri
   }).join("\n");
 
   const prompt = `
-    As an AWS Cloud Architect for the "Cloud-Ops" platform, review the following EC2 fleet distribution fetched via our centralized Lambda from multiple child accounts:
+    You are the Amazon Bedrock Cloud Intelligence Architect. Your goal is to provide deep, high-value technical insights for the "Cloud-Ops" multi-account platform.
     
+    Data Source: Centralized AWS Lambda (Master Account)
+    Scope: ${accounts.length} Child Accounts
+    
+    Fleet Metrics:
     ${accountsSummary}
 
-    Analyze the Spot vs On-Demand ratio across these accounts. Provide 3 specific, actionable recommendations for saving costs or improving availability using Spot instances. 
-    Focus on instance type families, cross-account optimization, and potential architectural changes.
+    Task:
+    Perform a high-reasoning analysis of the Spot vs On-Demand ratio. Provide 3 high-impact architectural recommendations that leverage Bedrock-style thinking:
     
-    Structure your response clearly with bold headings:
-    1. Multi-Account Posture Summary
-    2. Recommendations (with expected % savings)
-    3. Spot Interruption Risk Assessment
+    - Look for cross-account consolidation opportunities.
+    - Identify instance type families that are underutilized but have better spot availability.
+    - Suggest specific 'Lifecycle' transitions.
+
+    Format your response with the following bold sections:
+    1. **Bedrock Fleet Insight Summary**: A high-level view of multi-account posture.
+    2. **Architectural Recommendations**: (Provide 3 detailed bullets with estimated monthly ROI).
+    3. **Spot Interruption Risk Analysis**: A calculated risk assessment based on instance family diversity.
   `;
 
   try {
     const response = await ai.models.generateContent({
-      model: 'gemini-3-flash-preview',
+      // Using Pro model for "Bedrock-level" reasoning as per coding guidelines
+      model: 'gemini-3-pro-preview',
       contents: prompt,
     });
-    return response.text || "No recommendations available at this time.";
+    return response.text || "Bedrock inference returned an empty response. Please check Lambda connectivity.";
   } catch (error) {
-    console.error("Gemini Error:", error);
-    return "Error generating AI recommendations. Please check your fleet manually.";
+    console.error("Bedrock Simulation Error:", error);
+    return "Error invoking Amazon Bedrock Intelligence layer. Ensure your AWS credentials/API Key are valid.";
   }
 };

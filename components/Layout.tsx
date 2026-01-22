@@ -14,7 +14,7 @@ const Layout: React.FC<LayoutProps> = ({ children, activeTab, setActiveTab, onLo
     { id: 'dashboard', label: 'Dashboard', icon: '📊' },
     { id: 'accounts', label: 'Account Explorer', icon: '🏢' },
     { id: 'analytics', label: 'Analytics', icon: '📈' },
-    { id: 'ai', label: 'AI Insights', icon: '✨' },
+    { id: 'ai', label: 'Bedrock Advisor', icon: '✨' },
   ];
 
   return (
@@ -22,9 +22,9 @@ const Layout: React.FC<LayoutProps> = ({ children, activeTab, setActiveTab, onLo
       {/* Sidebar */}
       <aside className="w-64 bg-slate-900 text-white flex flex-col shrink-0">
         <div className="p-6 border-b border-slate-800">
-          <h1 className="text-xl tracking-tighter flex items-center gap-1">
-            <span className="font-extrabold text-white">Cloud</span>
-            <span className="font-extrabold text-orange-500">-Ops</span>
+          <h1 className="text-xl tracking-tighter flex items-center gap-0">
+            <span className="font-black text-white">Cloud</span>
+            <span className="font-black text-orange-500">-Ops</span>
           </h1>
           <p className="text-[10px] text-slate-500 mt-1 uppercase tracking-widest font-bold">AWS Cognito Secured</p>
         </div>
@@ -41,7 +41,7 @@ const Layout: React.FC<LayoutProps> = ({ children, activeTab, setActiveTab, onLo
               }`}
             >
               <span>{item.icon}</span>
-              <span className="font-medium">{item.label}</span>
+              <span className="font-bold text-sm tracking-tight">{item.label}</span>
             </button>
           ))}
         </nav>
@@ -74,7 +74,7 @@ const Layout: React.FC<LayoutProps> = ({ children, activeTab, setActiveTab, onLo
       <main className="flex-1 flex flex-col overflow-hidden">
         <header className="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-8 shrink-0">
           <div className="flex items-center gap-4">
-            <h2 className="text-lg font-bold text-slate-800 capitalize tracking-tight">
+            <h2 className="text-lg font-black text-slate-800 capitalize tracking-tight">
               {activeTab.replace('-', ' ')}
             </h2>
             <div className="h-4 w-px bg-slate-300"></div>

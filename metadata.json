@@ -1,5 +1,5 @@
 {
   "name": "Cloud-Ops: AWS Multi-Account Fleet Monitor",
-  "description": "Centralized dashboard powered by AWS Lambda for monitoring EC2 Spot and On-Demand distribution across child accounts, featuring AI-driven cost optimization.",
+  "description": "Centralized dashboard powered by AWS Lambda and Amazon Bedrock-style intelligence for monitoring EC2 Spot/On-Demand distribution across child accounts.",
   "requestFramePermissions": []
 }
